@@ -11,8 +11,6 @@
                 <div class="card-body">
                     <form method="POST" action="{% if form.instance.pk %}{% url 'student_update' form.instance.id %}{% else %}{% url 'student_create' %}{% endif %}">
                         {% csrf_token %}
-
-                        <!-- Render the form fields with larger text size -->
                         <div class="mb-4">
                             {% for field in form %}
                                 <div class="mb-4">
@@ -27,7 +25,6 @@
 
                         <div class="d-flex justify-content-end gap-2 mt-3">
                             <a href="{% url 'student_list' %}" class="btn btn-lg btn-secondary">Back to List</a>
-                            <!-- Buttons with larger font size and padding -->
                             <button type="submit" class="btn btn-lg {% if form.instance.pk %} btn-warning {% else %} btn-success {% endif %}">
                                 {% if form.instance.pk %} Update {% else %} Submit {% endif %}
                             </button>
